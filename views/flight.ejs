@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Booking Flight</title>
+	</head>
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td,
+		th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #dddddd;
+		}
+	</style>
+
+	<body>
+		<h1>Flight</h1>
+
+		<form action="/booking" method="post">
+			<input type="text" placeholder="Flight Title"
+				name="title">
+			<input type="text" placeholder="Flight Time"
+				name="time">
+			<input type="text" placeholder="Price"
+				name="price">
+			<input type="text" placeholder="Booking Date"
+				name="date">
+			<button type="submit">Update</button>
+		</form>
+	</body>
+
+</html>

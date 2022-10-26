@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Booking Flight</title>
+	</head>
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td,
+		th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #dddddd;
+		}
+	</style>
+
+	<body>
+		<h1>All Books</h1>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Time</th>
+				<th>Price</th>
+				<th>Date</th>
+				<th>Update</th>
+				<th>View</th>
+			</tr>
+			<% data.forEach(element=> { %>
+				<tr>
+					<td>
+						<%= element.title %>
+					</td>
+					<td>
+						<%= element.time %>
+					</td>
+					<td>
+						<%= element.price %>
+					</td>
+					<td>
+						<%= element.date %>
+					</td>
+					<td>
+						<form action="/EditTicket" method="post">
+							<input type="text" style="display: none;"
+								name="title"
+								value="<%= element.title %>">
+							<button type="submit">Update</button>
+						</form>
+					</td>
+					<td>
+						<form action="/delete" method="post">
+							<input type="text" style="display: none;"
+								name="title"
+								value="<%= element.title %>">
+							<button type="submit">Delete</button>
+						</form>
+					</td>
+                    <td><a href="/getFlight">View</a></td>
+				</tr>
+				<% }) %>
+		</table>
+
+		<h1>Book Flight</h1>
+
+		<form action="/booking" method="post">
+			<input type="text" placeholder="Flight Title"
+				name="title">
+			<input type="text" placeholder="Flight Time"
+				name="time">
+			<input type="text" placeholder="Price"
+				name="price">
+			<input type="text" placeholder="Booking Date"
+				name="date">
+			<button type="submit">Add</button>
+		</form>
+	</body>
+
+</html>
